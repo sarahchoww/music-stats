@@ -7,15 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8543B9852A1EEF2900D3A1D2 /* SpotifyiOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8543B9832A1EED8600D3A1D2 /* SpotifyiOS.xcframework */; };
+		8543B9862A1EEF2900D3A1D2 /* SpotifyiOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8543B9832A1EED8600D3A1D2 /* SpotifyiOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8581ED2F2A1C30CE00445D6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8581ED2E2A1C30CE00445D6A /* AppDelegate.swift */; };
 		8581ED312A1C30CE00445D6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8581ED302A1C30CE00445D6A /* SceneDelegate.swift */; };
 		8581ED332A1C30CE00445D6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8581ED322A1C30CE00445D6A /* ViewController.swift */; };
 		8581ED362A1C30CE00445D6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8581ED342A1C30CE00445D6A /* Main.storyboard */; };
 		8581ED382A1C30CF00445D6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8581ED372A1C30CF00445D6A /* Assets.xcassets */; };
 		8581ED3B2A1C30CF00445D6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8581ED392A1C30CF00445D6A /* LaunchScreen.storyboard */; };
+		8581ED432A1C313500445D6A /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8581ED422A1C313500445D6A /* SpotifyiOS.framework */; };
+		8581ED492A1C32CF00445D6A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8581ED482A1C32CF00445D6A /* Constants.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8543B9872A1EEF2900D3A1D2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8543B9862A1EEF2900D3A1D2 /* SpotifyiOS.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		8543B9832A1EED8600D3A1D2 /* SpotifyiOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = SpotifyiOS.xcframework; sourceTree = "<group>"; };
 		8581ED2B2A1C30CE00445D6A /* music-stats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "music-stats.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8581ED2E2A1C30CE00445D6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8581ED302A1C30CE00445D6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +43,9 @@
 		8581ED372A1C30CF00445D6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8581ED3A2A1C30CF00445D6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8581ED3C2A1C30CF00445D6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8581ED422A1C313500445D6A /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
+		8581ED452A1C31C100445D6A /* music-stats-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "music-stats-Bridging-Header.h"; sourceTree = "<group>"; };
+		8581ED482A1C32CF00445D6A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8543B9852A1EEF2900D3A1D2 /* SpotifyiOS.xcframework in Frameworks */,
+				8581ED432A1C313500445D6A /* SpotifyiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +80,27 @@
 		8581ED2D2A1C30CE00445D6A /* music-stats */ = {
 			isa = PBXGroup;
 			children = (
-				8581ED2E2A1C30CE00445D6A /* AppDelegate.swift */,
+				8581ED442A1C316100445D6A /* Files */,
 				8581ED302A1C30CE00445D6A /* SceneDelegate.swift */,
 				8581ED322A1C30CE00445D6A /* ViewController.swift */,
+				8581ED452A1C31C100445D6A /* music-stats-Bridging-Header.h */,
+				8581ED482A1C32CF00445D6A /* Constants.swift */,
+			);
+			path = "music-stats";
+			sourceTree = "<group>";
+		};
+		8581ED442A1C316100445D6A /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				8543B9832A1EED8600D3A1D2 /* SpotifyiOS.xcframework */,
+				8581ED2E2A1C30CE00445D6A /* AppDelegate.swift */,
 				8581ED342A1C30CE00445D6A /* Main.storyboard */,
 				8581ED372A1C30CF00445D6A /* Assets.xcassets */,
 				8581ED392A1C30CF00445D6A /* LaunchScreen.storyboard */,
 				8581ED3C2A1C30CF00445D6A /* Info.plist */,
+				8581ED422A1C313500445D6A /* SpotifyiOS.framework */,
 			);
-			path = "music-stats";
+			name = Files;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +113,7 @@
 				8581ED272A1C30CE00445D6A /* Sources */,
 				8581ED282A1C30CE00445D6A /* Frameworks */,
 				8581ED292A1C30CE00445D6A /* Resources */,
+				8543B9872A1EEF2900D3A1D2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -99,6 +136,7 @@
 				TargetAttributes = {
 					8581ED2A2A1C30CE00445D6A = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
 					};
 				};
 			};
@@ -141,6 +179,7 @@
 				8581ED332A1C30CE00445D6A /* ViewController.swift in Sources */,
 				8581ED2F2A1C30CE00445D6A /* AppDelegate.swift in Sources */,
 				8581ED312A1C30CE00445D6A /* SceneDelegate.swift in Sources */,
+				8581ED492A1C32CF00445D6A /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,8 +324,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 35LHLK3Q28;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/music-stats",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "music-stats/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -299,9 +344,13 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chow.music-stats";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "music-stats/music-stats-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -312,8 +361,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 35LHLK3Q28;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/music-stats",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "music-stats/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -326,9 +381,12 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chow.music-stats";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "music-stats/music-stats-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
