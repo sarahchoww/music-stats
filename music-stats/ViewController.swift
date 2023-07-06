@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import SwiftUI
 
 class ViewController: UIViewController {
+    
+    var spotifyAccessToken: String = "";
+    
+    var topTrackArr: [track] = []
+
 
     // MARK: - Spotify Authorization & Configuration
     var responseCode: String? {
@@ -21,6 +27,7 @@ class ViewController: UIViewController {
                 let accessToken = dictionary!["access_token"] as! String
                 DispatchQueue.main.async {
                     self.appRemote.connectionParameters.accessToken = accessToken
+                    self.spotifyAccessToken = accessToken
                     self.appRemote.connect()
                 }
             }
@@ -68,6 +75,8 @@ class ViewController: UIViewController {
     let trackLabel = UILabel()
     let playPauseButton = UIButton(type: .system)
     let signOutButton = UIButton(type: .system)
+    
+    let dataButton = UIButton(type: .system)
 
     // MARK: App Life Cycle
     override func viewDidLoad() {
@@ -116,6 +125,15 @@ class ViewController: UIViewController {
         sessionManager.initiateSession(with: scopes, options: .clientOnly)
     }
 
+    @objc func didTapGetData() {
+        let viewControl = UIHostingController(rootView: TopDataView(navigationController: self.navigationController,
+                                                                    spotifyAccessToken: self.spotifyAccessToken,
+                                                                    topTrackArr: self.topTrackArr))
+        self.navigationController?.pushViewController(viewControl, animated: true)
+
+    }
+    
+    
     // MARK: - Private Helpers
     private func presentAlertController(title: String, message: String, buttonTitle: String) {
         DispatchQueue.main.async {
@@ -160,10 +178,17 @@ extension ViewController {
         signOutButton.setTitle("Sign out", for: .normal)
         signOutButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         signOutButton.addTarget(self, action: #selector(didTapSignOut(_:)), for: .touchUpInside)
+        
+        dataButton.translatesAutoresizingMaskIntoConstraints = false
+        dataButton.configuration = .filled()
+        dataButton.setTitle("Get stats", for: [])
+        dataButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title3)
+        dataButton.addTarget(self, action: #selector(didTapGetData), for: .touchUpInside)
     }
 
     func layout() {
 
+        stackView.addArrangedSubview(dataButton)
         stackView.addArrangedSubview(connectLabel)
         stackView.addArrangedSubview(connectButton)
         stackView.addArrangedSubview(imageView)
@@ -181,6 +206,7 @@ extension ViewController {
 
     func updateViewBasedOnConnected() {
         if appRemote.isConnected == true {
+            dataButton.isHidden = false
             connectButton.isHidden = true
             signOutButton.isHidden = false
             connectLabel.isHidden = true
@@ -189,6 +215,7 @@ extension ViewController {
             playPauseButton.isHidden = false
         }
         else { // show login
+            dataButton.isHidden = true
             signOutButton.isHidden = true
             connectButton.isHidden = false
             connectLabel.isHidden = false
@@ -210,6 +237,26 @@ extension ViewController: SPTAppRemoteDelegate {
             }
         })
         fetchPlayerState()
+        
+        fetchTopArtists { (tracks, error) in
+            if let error = error {
+                print("Fetching tracks error \(error)")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                for i in 0...4 {
+                    let artistResponse = tracks[i].artists as [artist]
+                    
+                    print("decoded= ", i, tracks[i].name, artistResponse)
+                    self.topTrackArr.append(tracks[i])
+                
+                }
+                print("top tracks are ", self.topTrackArr)
+            }
+            
+        }
+
     }
 
     func appRemote(_ appRemote: SPTAppRemote, didDisconnectWithError error: Error?) {
@@ -310,5 +357,58 @@ extension ViewController {
             }
         })
     }
+    
+    
+    func fetchTopArtists(completion: @escaping ([track], Error?) -> Void) {
+        
+        
+        let url: String = "https://api.spotify.com/v1/me/top/tracks"
+        
+        var components = URLComponents(string: url)!
+        
+        components.queryItems = [
+            URLQueryItem(name: "time_range", value: "long_term"),
+            URLQueryItem(name: "limit", value: "5"),
+            URLQueryItem(name: "offset", value: "0")
+        ]
+   
+        var request = URLRequest(url: components.url!)
+            let spotifyAuthorization = "Bearer \(self.spotifyAccessToken)"
+
+        
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(spotifyAuthorization, forHTTPHeaderField: "Authorization")
+
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data,                              // is there data
+                      let response = response as? HTTPURLResponse,  // is there HTTP response
+                      200 ..< 300 ~= response.statusCode,
+                      error == nil else {                           // was there no error, otherwise ...
+                    print("Error fetching top tracks \(error?.localizedDescription ?? "")")
+                    return
+                }
+                let responseObject = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
+                let responseDecode: totalTracks = try! JSONDecoder().decode(totalTracks.self, from: data)
+                
+                completion(responseDecode.items, nil)
+        }
+        
+        task.resume()
+    }
+    
+    func processData(_ responseDecode: totalTracks) -> Void {
+            for i in 0...4 {
+                let trackResponse = responseDecode.items as [track]
+                let artistResponse = trackResponse[i].artists as [artist]
+                
+                
+                print("decoded= ", i, trackResponse[i].name, artistResponse)
+                self.topTrackArr.append(contentsOf: trackResponse)
+                
+            
+        }
+    }
+
 }
 
