@@ -10,6 +10,7 @@
 		8508CE612A39537F0077895E /* TrackData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508CE602A39537F0077895E /* TrackData.swift */; };
 		8508CE632A49142A0077895E /* TopDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508CE622A49142A0077895E /* TopDataView.swift */; };
 		8508CE652A57491A0077895E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508CE642A57491A0077895E /* DataModel.swift */; };
+		8508CE692A5760370077895E /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508CE682A5760370077895E /* TrackView.swift */; };
 		8543B9852A1EEF2900D3A1D2 /* SpotifyiOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8543B9832A1EED8600D3A1D2 /* SpotifyiOS.xcframework */; };
 		8543B9862A1EEF2900D3A1D2 /* SpotifyiOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8543B9832A1EED8600D3A1D2 /* SpotifyiOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8581ED2F2A1C30CE00445D6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8581ED2E2A1C30CE00445D6A /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 		8508CE602A39537F0077895E /* TrackData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackData.swift; sourceTree = "<group>"; };
 		8508CE622A49142A0077895E /* TopDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDataView.swift; sourceTree = "<group>"; };
 		8508CE642A57491A0077895E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		8508CE682A5760370077895E /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
 		8543B9832A1EED8600D3A1D2 /* SpotifyiOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = SpotifyiOS.xcframework; sourceTree = "<group>"; };
 		8581ED2B2A1C30CE00445D6A /* music-stats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "music-stats.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8581ED2E2A1C30CE00445D6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				8581ED302A1C30CE00445D6A /* SceneDelegate.swift */,
 				8581ED322A1C30CE00445D6A /* ViewController.swift */,
 				8508CE622A49142A0077895E /* TopDataView.swift */,
+				8508CE682A5760370077895E /* TrackView.swift */,
 				8508CE642A57491A0077895E /* DataModel.swift */,
 				8581ED452A1C31C100445D6A /* music-stats-Bridging-Header.h */,
 				8581ED482A1C32CF00445D6A /* Constants.swift */,
@@ -187,6 +190,7 @@
 			files = (
 				8508CE652A57491A0077895E /* DataModel.swift in Sources */,
 				8508CE632A49142A0077895E /* TopDataView.swift in Sources */,
+				8508CE692A5760370077895E /* TrackView.swift in Sources */,
 				8581ED332A1C30CE00445D6A /* ViewController.swift in Sources */,
 				8581ED2F2A1C30CE00445D6A /* AppDelegate.swift in Sources */,
 				8581ED312A1C30CE00445D6A /* SceneDelegate.swift in Sources */,

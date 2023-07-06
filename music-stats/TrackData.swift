@@ -11,11 +11,20 @@ struct artist: Codable {
     let name: String
 }
 
+struct image: Codable {
+    let url: String
+}
+
+struct album: Codable {
+    let images: [image]
+}
+
 struct track: Codable, Identifiable, Hashable {
     
     let artists: [artist]
     let name: String
     let id: String
+    let album: album
     
     static func == (lhs: track, rhs: track) -> Bool {
         lhs.id == rhs.id

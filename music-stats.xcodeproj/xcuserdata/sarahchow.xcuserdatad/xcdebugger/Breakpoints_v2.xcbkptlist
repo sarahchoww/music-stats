@@ -3,4 +3,54 @@
    uuid = "C00B895D-FC33-479F-9442-5419E511A62F"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "43BD69F4-7F7D-4D76-97DB-25FD094BBFAD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "music-stats/TopDataView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "43BD69F4-7F7D-4D76-97DB-25FD094BBFAD - 7ce3a4eaf2cd8fab"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;music_stats.track&gt;, Swift.String, music_stats.TrackView&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.List&lt;Swift.Never, SwiftUI.ForEach&lt;Swift.Array&lt;music_stats.track&gt;, Swift.String, music_stats.TrackView&gt;&gt;, SwiftUI.Spacer)&gt; in music_stats.TopDataView.body.getter : some"
+                  moduleName = "music-stats"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sarahchow/code/music-stats/music-stats/TopDataView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "172">
+               </Location>
+               <Location
+                  uuid = "43BD69F4-7F7D-4D76-97DB-25FD094BBFAD - a56f8f4530cc5aa6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (music_stats.track) -&gt; music_stats.TrackView in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;music_stats.track&gt;, Swift.String, music_stats.TrackView&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.List&lt;Swift.Never, SwiftUI.ForEach&lt;Swift.Array&lt;music_stats.track&gt;, Swift.String, music_stats.TrackView&gt;&gt;, SwiftUI.Spacer)&gt; in music_stats.TopDataView.body.getter : some"
+                  moduleName = "music-stats"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sarahchow/code/music-stats/music-stats/TopDataView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

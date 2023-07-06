@@ -245,14 +245,11 @@ extension ViewController: SPTAppRemoteDelegate {
             }
             
             DispatchQueue.main.async {
-                for i in 0...4 {
-                    let artistResponse = tracks[i].artists as [artist]
-                    
-                    print("decoded= ", i, tracks[i].name, artistResponse)
-                    self.topTrackArr.append(tracks[i])
+                for track in tracks {
+                    let artistResponse = track.artists as [artist]
+                    self.topTrackArr.append(track)
                 
                 }
-                print("top tracks are ", self.topTrackArr)
             }
             
         }
@@ -361,14 +358,13 @@ extension ViewController {
     
     func fetchTopArtists(completion: @escaping ([track], Error?) -> Void) {
         
-        
         let url: String = "https://api.spotify.com/v1/me/top/tracks"
         
         var components = URLComponents(string: url)!
         
         components.queryItems = [
             URLQueryItem(name: "time_range", value: "long_term"),
-            URLQueryItem(name: "limit", value: "5"),
+            URLQueryItem(name: "limit", value: "50"),
             URLQueryItem(name: "offset", value: "0")
         ]
    
@@ -388,26 +384,13 @@ extension ViewController {
                     print("Error fetching top tracks \(error?.localizedDescription ?? "")")
                     return
                 }
-                let responseObject = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
+                _ = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
                 let responseDecode: totalTracks = try! JSONDecoder().decode(totalTracks.self, from: data)
                 
                 completion(responseDecode.items, nil)
         }
         
         task.resume()
-    }
-    
-    func processData(_ responseDecode: totalTracks) -> Void {
-            for i in 0...4 {
-                let trackResponse = responseDecode.items as [track]
-                let artistResponse = trackResponse[i].artists as [artist]
-                
-                
-                print("decoded= ", i, trackResponse[i].name, artistResponse)
-                self.topTrackArr.append(contentsOf: trackResponse)
-                
-            
-        }
     }
 
 }
